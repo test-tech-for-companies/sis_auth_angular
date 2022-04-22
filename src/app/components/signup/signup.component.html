@@ -1,0 +1,14 @@
+<div class="signUp_user">
+    <div class="container_signUp_user">
+        <h2>Register</h2>
+        <form (submit)="signUp()" >
+            <input type="text" [(ngModel)]="user.name" name="name" placeholder="Email">
+            <br>            
+            <input type="text" [(ngModel)]="user.email" name="email" placeholder="Email">
+            <br>
+            <input type="password" [(ngModel)]="user.password" name="password" placeholder="Password">
+            <br>
+            <button type="submit">Iniciar Sesion</button>
+        </form>
+    </div>
+</div>

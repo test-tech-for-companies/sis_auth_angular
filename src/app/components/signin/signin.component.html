@@ -1,0 +1,12 @@
+<div class="logIn_user">
+    <div class="container_logIn_user">
+        <h2>SignIn</h2>
+        <form (submit)="signIn()" >
+            <input type="text" [(ngModel)]="user.email" name="email" placeholder="Email">
+            <br>
+            <input type="password" [(ngModel)]="user.password" name="password" placeholder="Password">
+            <br>
+            <button type="submit">Iniciar Sesion</button>
+        </form>
+    </div>
+</div>

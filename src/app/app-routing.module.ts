@@ -9,7 +9,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 
 const routes: Routes = [
   {
-    path: 'principal',
+    path: 'profile',
     component: PrincipalComponent
   },
   {

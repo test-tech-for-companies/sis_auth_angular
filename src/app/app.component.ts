@@ -17,6 +17,11 @@ export class AppComponent implements OnInit {
     private dataService: DataService,
     ) {
     this.verifyAuth();
+    let isAuth = localStorage.getItem('isAuth')
+    if (isAuth != null) {
+      this.is_auth = (isAuth === 'true');
+    }      
+    
   }
 
   ngOnInit(): void {
@@ -27,10 +32,12 @@ export class AppComponent implements OnInit {
   }
 
   verifyAuth() {
-    if (this.is_auth === false)
+    let isAuth = (localStorage.getItem('isAuth') === 'true');
+    if (this.is_auth === isAuth) {
       this.loadLogIn();
-    else
+    } else {
       this.loadHome();
+    }
   }
 
   loadHome() {
@@ -43,6 +50,15 @@ export class AppComponent implements OnInit {
   
   loadSignUp() {
     this.route.navigate(['/signup']);
+  }
+
+  logOut() {
+    localStorage.clear();
+    this.dataService.isAuth$.emit(false);
+  }
+
+  loadAccount() {
+    this.route.navigate(['/profile']);
   }
 
 }

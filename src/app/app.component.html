@@ -2,9 +2,9 @@
   <div class="header">
     <h1>Banco UN</h1>
     <nav>
-      <button *ngIf="is_auth" > Home </button>
-      <button *ngIf="is_auth" > Account </button>
-      <button *ngIf="is_auth" > Logout </button>
+      <button *ngIf="is_auth" (click)="loadHome()"> Home </button>
+      <button *ngIf="is_auth" (click)="loadAccount()"> Account </button>
+      <button *ngIf="is_auth" (click)="logOut()"> Logout </button>
       <button *ngIf="!is_auth" (click)="loadLogIn()" > SignIn </button>
       <button *ngIf="!is_auth" (click)="loadSignUp()" > SignUp </button>
     </nav>

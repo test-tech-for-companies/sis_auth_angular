@@ -37,5 +37,6 @@ export class SigninComponent implements OnInit {
   loadSession(res: any) {
     localStorage.setItem('token', res.token);
     this.dataService.isAuth$.emit(true);
+    localStorage.setItem('isAuth', 'true');
   }
 }

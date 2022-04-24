@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { HomeUserComponent } from './components/home-user/home-user.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [

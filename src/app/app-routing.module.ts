@@ -7,14 +7,16 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 
+import { AuthGuard } from './auth.guard';
+
 const routes: Routes = [
   {
     path: 'profile',
-    component: PrincipalComponent
+    component: PrincipalComponent,
   },
   {
     path: 'home',
-    component: HomeUserComponent
+    component: HomeUserComponent,
   },
   {
     path: 'signup',

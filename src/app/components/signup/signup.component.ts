@@ -26,20 +26,19 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    console.log(this.user);
     this.authService.signUp(this.user)
       .subscribe(
         res => {
-          console.log(res);
           this.loadSession(res);
         },
         err => console.log(err)
-      )
+      );
   }
 
   loadSession(res: any) {
     localStorage.setItem('token', res.token);
     this.dataService.isAuth$.emit(true);
     localStorage.setItem('isAuth', 'true');
+    localStorage.setItem('user_id', res.user_id);
   }
 }

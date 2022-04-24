@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +16,27 @@ export class AuthService {
 
   signIn(user: any) {
     return this.http.post<any>(this.URL + 'login/', user);
+  }
+
+  getDetailUser() {
+    const headers = new HttpHeaders({'Authorization': `Token ${this.getToken()}`});
+    return this.http.get<any>(this.URL + `detail/${this.getUserId()}/` , { headers });
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  getUserId() {
+    return localStorage.getItem('user_id');
   }  
+
+  getSingIng() {
+    return !!localStorage.getItem('token');
+  }
+  
+
+  getUser() {
+    return localStorage.getItem('user');
+  }
 }

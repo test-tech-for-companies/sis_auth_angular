@@ -24,19 +24,18 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn() {
-    console.log(this.user);
-    
+  signIn() {  
     this.authService.signIn(this.user)
       .subscribe(
         res => this.loadSession(res),
         err => console.log(err)
-      )
+      );
   }
 
   loadSession(res: any) {
     localStorage.setItem('token', res.token);
     this.dataService.isAuth$.emit(true);
     localStorage.setItem('isAuth', 'true');
+    localStorage.setItem('user_id', res.user_id);
   }
 }
